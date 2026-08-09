@@ -1,0 +1,15 @@
+==============
+Nested loops
+==============
+
+[+[->+]]
+
+---
+
+(source_file
+  (loop
+    (increment)
+    (loop
+      (decrement)
+      (move_right)
+      (increment))))

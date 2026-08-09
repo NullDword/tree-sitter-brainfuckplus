@@ -1,0 +1,149 @@
+[
+  {
+    "type": "loop",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "decrement",
+          "named": true
+        },
+        {
+          "type": "increment",
+          "named": true
+        },
+        {
+          "type": "input",
+          "named": true
+        },
+        {
+          "type": "loop",
+          "named": true
+        },
+        {
+          "type": "mov_keyword",
+          "named": true
+        },
+        {
+          "type": "move_left",
+          "named": true
+        },
+        {
+          "type": "move_right",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "output",
+          "named": true
+        },
+        {
+          "type": "zero_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "decrement",
+          "named": true
+        },
+        {
+          "type": "increment",
+          "named": true
+        },
+        {
+          "type": "input",
+          "named": true
+        },
+        {
+          "type": "loop",
+          "named": true
+        },
+        {
+          "type": "mov_keyword",
+          "named": true
+        },
+        {
+          "type": "move_left",
+          "named": true
+        },
+        {
+          "type": "move_right",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "output",
+          "named": true
+        },
+        {
+          "type": "zero_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "decrement",
+    "named": true
+  },
+  {
+    "type": "increment",
+    "named": true
+  },
+  {
+    "type": "input",
+    "named": true
+  },
+  {
+    "type": "mov_keyword",
+    "named": true
+  },
+  {
+    "type": "move_left",
+    "named": true
+  },
+  {
+    "type": "move_right",
+    "named": true
+  },
+  {
+    "type": "number",
+    "named": true
+  },
+  {
+    "type": "output",
+    "named": true
+  },
+  {
+    "type": "zero_keyword",
+    "named": true
+  }
+]

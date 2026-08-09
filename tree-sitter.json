@@ -1,0 +1,41 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "brainfuckplus",
+      "camelcase": "Brainfuckplus",
+      "title": "Brainfuck +",
+      "scope": "source.brainfuckplus",
+      "file-types": [
+        "bfp"
+      ],
+      "injection-regex": "^brainfuckplus$",
+      "class-name": "TreeSitterBrainfuckplus"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Grammar for the Brainfuck+ programming language",
+    "authors": [
+      {
+        "name": "NullDword",
+        "url": "https://github.com/NullDword"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/NullDword/tree-sitter-brainfuckplus",
+      "funding": ""
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "java": false,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
+  }
+}
