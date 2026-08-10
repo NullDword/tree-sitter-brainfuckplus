@@ -111,6 +111,16 @@
     "named": false
   },
   {
+    "type": "block_comment",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "extra": true
+  },
+  {
     "type": "decrement",
     "named": true
   },

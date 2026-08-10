@@ -11,6 +11,9 @@
 
 (number) @number
 
+(comment) @comment
+(block_comment) @comment
+
 (loop
   "[" @punctuation.bracket
   "]" @punctuation.bracket)
