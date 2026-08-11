@@ -181,137 +181,112 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
   eof = lexer->eof(lexer);
   switch (state) {
     case 0:
-      if (eof) ADVANCE(10);
+      if (eof) ADVANCE(11);
       ADVANCE_MAP(
-        '+', 11,
-        ',', 16,
-        '-', 12,
-        '.', 15,
-        ':', 2,
-        '<', 14,
-        '>', 13,
-        '[', 26,
-        ']', 27,
-        'm', 6,
-        'z', 5,
+        '+', 12,
+        ',', 17,
+        '-', 13,
+        '.', 16,
+        ':', 3,
+        '<', 15,
+        '>', 14,
+        '[', 23,
+        ']', 24,
+        'm', 7,
+        'z', 6,
       );
       if (('\t' <= lookahead && lookahead <= '\r') ||
           lookahead == ' ') SKIP(0);
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(19);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(20);
       END_STATE();
     case 1:
-      if (lookahead == ')') ADVANCE(4);
+      if (lookahead == '(') ADVANCE(2);
       if (lookahead != 0 &&
+          lookahead != 'n' &&
           lookahead != 0x17f &&
-          lookahead != 0x212a) ADVANCE(1);
+          lookahead != 0x212a) ADVANCE(21);
       END_STATE();
     case 2:
-      if (lookahead == ':') ADVANCE(23);
+      if (lookahead == ')') ADVANCE(5);
+      if (lookahead != 0 &&
+          lookahead != 0x17f &&
+          lookahead != 0x212a) ADVANCE(2);
       END_STATE();
     case 3:
-      if (lookahead == ':') ADVANCE(25);
-      if (lookahead != 0 &&
-          lookahead != 0x17f &&
-          lookahead != 0x212a) ADVANCE(1);
+      if (lookahead == ':') ADVANCE(1);
       END_STATE();
     case 4:
-      if (lookahead == ':') ADVANCE(3);
+      if (lookahead == ':') ADVANCE(22);
       if (lookahead != 0 &&
           lookahead != 0x17f &&
-          lookahead != 0x212a) ADVANCE(1);
+          lookahead != 0x212a) ADVANCE(2);
       END_STATE();
     case 5:
-      if (lookahead == 'e') ADVANCE(8);
-      END_STATE();
-    case 6:
-      if (lookahead == 'o') ADVANCE(9);
-      END_STATE();
-    case 7:
-      if (lookahead == 'o') ADVANCE(18);
-      END_STATE();
-    case 8:
-      if (lookahead == 'r') ADVANCE(7);
-      END_STATE();
-    case 9:
-      if (lookahead == 'v') ADVANCE(17);
-      END_STATE();
-    case 10:
-      ACCEPT_TOKEN(ts_builtin_sym_end);
-      END_STATE();
-    case 11:
-      ACCEPT_TOKEN(sym_increment);
-      END_STATE();
-    case 12:
-      ACCEPT_TOKEN(sym_decrement);
-      END_STATE();
-    case 13:
-      ACCEPT_TOKEN(sym_move_right);
-      END_STATE();
-    case 14:
-      ACCEPT_TOKEN(sym_move_left);
-      END_STATE();
-    case 15:
-      ACCEPT_TOKEN(sym_output);
-      END_STATE();
-    case 16:
-      ACCEPT_TOKEN(sym_input);
-      END_STATE();
-    case 17:
-      ACCEPT_TOKEN(sym_mov_keyword);
-      END_STATE();
-    case 18:
-      ACCEPT_TOKEN(sym_zero_keyword);
-      END_STATE();
-    case 19:
-      ACCEPT_TOKEN(sym_number);
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(19);
-      END_STATE();
-    case 20:
-      ACCEPT_TOKEN(sym_comment);
-      if (lookahead == '\n') ADVANCE(1);
-      if (lookahead == ')') ADVANCE(22);
+      if (lookahead == ':') ADVANCE(4);
       if (lookahead != 0 &&
           lookahead != 0x17f &&
-          lookahead != 0x212a) ADVANCE(20);
+          lookahead != 0x212a) ADVANCE(2);
+      END_STATE();
+    case 6:
+      if (lookahead == 'e') ADVANCE(9);
+      END_STATE();
+    case 7:
+      if (lookahead == 'o') ADVANCE(10);
+      END_STATE();
+    case 8:
+      if (lookahead == 'o') ADVANCE(19);
+      END_STATE();
+    case 9:
+      if (lookahead == 'r') ADVANCE(8);
+      END_STATE();
+    case 10:
+      if (lookahead == 'v') ADVANCE(18);
+      END_STATE();
+    case 11:
+      ACCEPT_TOKEN(ts_builtin_sym_end);
+      END_STATE();
+    case 12:
+      ACCEPT_TOKEN(sym_increment);
+      END_STATE();
+    case 13:
+      ACCEPT_TOKEN(sym_decrement);
+      END_STATE();
+    case 14:
+      ACCEPT_TOKEN(sym_move_right);
+      END_STATE();
+    case 15:
+      ACCEPT_TOKEN(sym_move_left);
+      END_STATE();
+    case 16:
+      ACCEPT_TOKEN(sym_output);
+      END_STATE();
+    case 17:
+      ACCEPT_TOKEN(sym_input);
+      END_STATE();
+    case 18:
+      ACCEPT_TOKEN(sym_mov_keyword);
+      END_STATE();
+    case 19:
+      ACCEPT_TOKEN(sym_zero_keyword);
+      END_STATE();
+    case 20:
+      ACCEPT_TOKEN(sym_number);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(20);
       END_STATE();
     case 21:
       ACCEPT_TOKEN(sym_comment);
-      if (lookahead == '\n') ADVANCE(1);
-      if (lookahead == ':') ADVANCE(24);
       if (lookahead != 0 &&
+          lookahead != '\n' &&
           lookahead != 0x17f &&
-          lookahead != 0x212a) ADVANCE(20);
+          lookahead != 0x212a) ADVANCE(21);
       END_STATE();
     case 22:
-      ACCEPT_TOKEN(sym_comment);
-      if (lookahead == '\n') ADVANCE(1);
-      if (lookahead == ':') ADVANCE(21);
-      if (lookahead != 0 &&
-          lookahead != 0x17f &&
-          lookahead != 0x212a) ADVANCE(20);
-      END_STATE();
-    case 23:
-      ACCEPT_TOKEN(sym_comment);
-      if (lookahead == '(') ADVANCE(20);
-      if (lookahead != 0 &&
-          lookahead != '\n' &&
-          lookahead != 0x17f &&
-          lookahead != 0x212a) ADVANCE(24);
-      END_STATE();
-    case 24:
-      ACCEPT_TOKEN(sym_comment);
-      if (lookahead != 0 &&
-          lookahead != '\n' &&
-          lookahead != 0x17f &&
-          lookahead != 0x212a) ADVANCE(24);
-      END_STATE();
-    case 25:
       ACCEPT_TOKEN(sym_block_comment);
       END_STATE();
-    case 26:
+    case 23:
       ACCEPT_TOKEN(anon_sym_LBRACK);
       END_STATE();
-    case 27:
+    case 24:
       ACCEPT_TOKEN(anon_sym_RBRACK);
       END_STATE();
     default:
@@ -490,7 +465,7 @@ static const uint32_t ts_small_parse_table_map[] = {
 static const TSParseActionEntry ts_parse_actions[] = {
   [0] = {.entry = {.count = 0, .reusable = false}},
   [1] = {.entry = {.count = 1, .reusable = false}}, RECOVER(),
-  [3] = {.entry = {.count = 1, .reusable = false}}, SHIFT_EXTRA(),
+  [3] = {.entry = {.count = 1, .reusable = true}}, SHIFT_EXTRA(),
   [5] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_source_file, 0, 0, 0),
   [7] = {.entry = {.count = 1, .reusable = true}}, SHIFT(4),
   [9] = {.entry = {.count = 1, .reusable = true}}, SHIFT(3),

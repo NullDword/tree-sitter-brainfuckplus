@@ -37,7 +37,7 @@ export default grammar({
 
     comment: $ => token(seq(
       "::",
-      /[^\n]*/
+      /[^\(n][^\n]*/
     )),
     block_comment: $ => token(seq(
       "::(",
