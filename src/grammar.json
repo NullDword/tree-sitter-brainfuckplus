@@ -50,7 +50,19 @@
         },
         {
           "type": "SYMBOL",
+          "name": "add_keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sub_keyword"
+        },
+        {
+          "type": "SYMBOL",
           "name": "number"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
         }
       ]
     },
@@ -86,9 +98,50 @@
       "type": "STRING",
       "value": "zero"
     },
+    "add_keyword": {
+      "type": "STRING",
+      "value": "add"
+    },
+    "sub_keyword": {
+      "type": "STRING",
+      "value": "sub"
+    },
     "number": {
       "type": "PATTERN",
       "value": "\\d+"
+    },
+    "string": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\""
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "string_escape"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[^\"\\\\\\n]+"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "\""
+        }
+      ]
+    },
+    "string_escape": {
+      "type": "PATTERN",
+      "value": "\\\\."
     },
     "comment": {
       "type": "TOKEN",
@@ -101,7 +154,7 @@
           },
           {
             "type": "PATTERN",
-            "value": "[^\\(n][^\\n]*"
+            "value": "[^\\(\\n][^\\n]*"
           }
         ]
       }

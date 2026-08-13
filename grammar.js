@@ -22,7 +22,10 @@ export default grammar({
       $.loop,
       $.mov_keyword,
       $.zero_keyword,
+      $.add_keyword,
+      $.sub_keyword,
       $.number,
+      $.string,
     ),
 
     increment: $ => "+",
@@ -31,14 +34,30 @@ export default grammar({
     move_left: $ => "<",
     output: $ => ".",
     input: $ => ",",
+
     mov_keyword: $ => "mov",
     zero_keyword: $ => "zero",
+    add_keyword: $ => "add",
+    sub_keyword: $ => "sub",
+
     number: $ => /\d+/,
+
+    string: $ => seq(
+      '"',
+      repeat(choice(
+        $.string_escape,
+        /[^"\\\n]+/,
+      )),
+      '"',
+    ),
+
+    string_escape: $ => /\\./,
 
     comment: $ => token(seq(
       "::",
-      /[^\(n][^\n]*/
+      /[^\(\n][^\n]*/,
     )),
+
     block_comment: $ => token(seq(
       "::(",
       repeat(choice(
@@ -46,7 +65,7 @@ export default grammar({
         seq(")", /[^:]/),
         seq("):", /[^:]/),
       )),
-      ")::"
+      ")::",
     )),
 
     loop: $ => seq(

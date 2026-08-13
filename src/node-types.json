@@ -8,6 +8,10 @@
       "required": false,
       "types": [
         {
+          "type": "add_keyword",
+          "named": true
+        },
+        {
           "type": "decrement",
           "named": true
         },
@@ -41,6 +45,14 @@
         },
         {
           "type": "output",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "sub_keyword",
           "named": true
         },
         {
@@ -60,6 +72,10 @@
       "required": false,
       "types": [
         {
+          "type": "add_keyword",
+          "named": true
+        },
+        {
           "type": "decrement",
           "named": true
         },
@@ -96,11 +112,38 @@
           "named": true
         },
         {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "sub_keyword",
+          "named": true
+        },
+        {
           "type": "zero_keyword",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "string",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "string_escape",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "\"",
+    "named": false
   },
   {
     "type": "[",
@@ -109,6 +152,10 @@
   {
     "type": "]",
     "named": false
+  },
+  {
+    "type": "add_keyword",
+    "named": true
   },
   {
     "type": "block_comment",
@@ -150,6 +197,14 @@
   },
   {
     "type": "output",
+    "named": true
+  },
+  {
+    "type": "string_escape",
+    "named": true
+  },
+  {
+    "type": "sub_keyword",
     "named": true
   },
   {
