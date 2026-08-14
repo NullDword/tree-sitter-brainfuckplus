@@ -6,6 +6,8 @@
 (output) @function
 (input) @function
 
+(cellreference) @punctuation.special
+
 (mov_keyword) @keyword
 (zero_keyword) @keyword
 (add_keyword) @keyword

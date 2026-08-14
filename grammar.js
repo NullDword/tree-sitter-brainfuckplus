@@ -26,6 +26,7 @@ export default grammar({
       $.sub_keyword,
       $.number,
       $.string,
+      $.cellreference,
     ),
 
     increment: $ => "+",
@@ -34,6 +35,8 @@ export default grammar({
     move_left: $ => "<",
     output: $ => ".",
     input: $ => ",",
+
+    cellreference: $ => '#',
 
     mov_keyword: $ => "mov",
     zero_keyword: $ => "zero",

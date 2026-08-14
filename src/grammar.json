@@ -63,6 +63,10 @@
         {
           "type": "SYMBOL",
           "name": "string"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "cellreference"
         }
       ]
     },
@@ -89,6 +93,10 @@
     "input": {
       "type": "STRING",
       "value": ","
+    },
+    "cellreference": {
+      "type": "STRING",
+      "value": "#"
     },
     "mov_keyword": {
       "type": "STRING",

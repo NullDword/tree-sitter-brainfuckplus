@@ -12,6 +12,10 @@
           "named": true
         },
         {
+          "type": "cellreference",
+          "named": true
+        },
+        {
           "type": "decrement",
           "named": true
         },
@@ -73,6 +77,10 @@
       "types": [
         {
           "type": "add_keyword",
+          "named": true
+        },
+        {
+          "type": "cellreference",
           "named": true
         },
         {
@@ -161,6 +169,10 @@
     "type": "block_comment",
     "named": true,
     "extra": true
+  },
+  {
+    "type": "cellreference",
+    "named": true
   },
   {
     "type": "comment",
